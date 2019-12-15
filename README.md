@@ -2,8 +2,8 @@
 
 Android Google Style Loading Animation Library
 
+[![](https://jitpack.io/v/ibrahimsn98/CirclesLoadingView.svg)](https://jitpack.io/#ibrahimsn98/CirclesLoadingView)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-
 
 ##  GIF
 
@@ -37,7 +37,7 @@ allprojects {
 }
 
 dependencies {
-        implementation 'com.github.ibrahimsn98:CirclesLoadingView:x'
+    implementation 'com.github.ibrahimsn98:CirclesLoadingView:1.0'
 }
 ```
 
