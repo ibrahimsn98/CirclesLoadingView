@@ -4,6 +4,11 @@ Android Google Style Loading Animation Library
 
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 
+
+##  GIF
+
+<img src="https://raw.githubusercontent.com/ibrahimsn98/CirclesLoadingView/master/art/gif.gif?raw=true"/>
+
 ## Usage
 
 -   Add view into your layout file
