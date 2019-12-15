@@ -10,9 +10,9 @@
     <me.ibrahimsn.lib.CirclesLoadingView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:circleRadius="8dp"
-        app:circleMargin="8dp"
-        app:animDistance="12dp"
+        app:circleRadius="12dp"
+        app:circleMargin="12dp"
+        app:animDistance="15dp"
         app:animDuration="700"
         app:animDelay="125"
         app:animInterpolator="overshoot"
