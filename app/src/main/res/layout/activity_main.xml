@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         app:circleRadius="8dp"
         app:circleMargin="8dp"
-        app:animDistance="10dp"
-        app:animDuration="500"
-        app:animDelay="150"
-        app:animInterpolator="accelerateDecelerate"
+        app:animDistance="12dp"
+        app:animDuration="700"
+        app:animDelay="125"
+        app:animInterpolator="overshoot"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 

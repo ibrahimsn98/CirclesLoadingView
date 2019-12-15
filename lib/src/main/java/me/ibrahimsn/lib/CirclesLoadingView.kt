@@ -54,6 +54,34 @@ class CirclesLoadingView : View {
         animDelay = typedArray.getInt(R.styleable.CirclesLoadingView_animDelay, this.animDelay.toInt()).toLong()
         animInterpolator = typedArray.getInt(R.styleable.CirclesLoadingView_animInterpolator, this.animInterpolator)
         typedArray.recycle()
+
+        val animators = mutableListOf<Animator>()
+
+        for (i in 0 until CIRCLE_COUNT) {
+            animators.add(ObjectAnimator.ofFloat(0f, animDistance).apply {
+                this.duration = animDuration
+                this.startDelay = i * animDelay
+                this.repeatCount = INFINITE
+                this.repeatMode = REVERSE
+                this.interpolator = when (animInterpolator) {
+                    0 -> AccelerateInterpolator()
+                    1 -> DecelerateInterpolator()
+                    2 -> AccelerateDecelerateInterpolator()
+                    3 -> AnticipateInterpolator()
+                    4 -> AnticipateOvershootInterpolator()
+                    5 -> LinearInterpolator()
+                    6 -> OvershootInterpolator()
+                    else -> AccelerateDecelerateInterpolator()
+                }
+
+                this.addUpdateListener {
+                    positions[i] = it.animatedValue as Float
+                    invalidate()
+                }
+            })
+        }
+
+        animatorSet.playTogether(animators)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -66,27 +94,6 @@ class CirclesLoadingView : View {
             canvas.drawCircle(startPoint, height/2f + positions[i], circleRadius, paint)
             startPoint += (circleRadius*2) + circleMargin
         }
-    }
-
-    init {
-        val animators = mutableListOf<Animator>()
-
-        for (i in 0 until CIRCLE_COUNT) {
-            animators.add(ObjectAnimator.ofFloat(0f, animDistance).apply {
-                this.duration = animDuration
-                this.startDelay = i * animDelay
-                this.repeatCount = INFINITE
-                this.repeatMode = REVERSE
-                this.interpolator = AccelerateDecelerateInterpolator()
-
-                this.addUpdateListener {
-                    positions[i] = it.animatedValue as Float
-                    invalidate()
-                }
-            })
-        }
-
-        animatorSet.playTogether(animators)
     }
 
     override fun onAttachedToWindow() {
